@@ -1,0 +1,21 @@
+#button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(64, 69, 39);
+  border-radius: 5px;
+  margin: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(127, 131, 106, 0.897);
+  color: black;
+}
