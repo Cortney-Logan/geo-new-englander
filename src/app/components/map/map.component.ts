@@ -22,7 +22,7 @@ const iconDefault = L.icon({
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
   tooltipAnchor: [16, -28],
-  shadowSize: [41, 41]
+  shadowSize: [41, 41],
 });
 L.Marker.prototype.options.icon = iconDefault;
 
@@ -34,28 +34,42 @@ L.Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements AfterViewInit, OnChanges {
   private map?: L.Map;
   private states: any;
+  private stateLayer: any;
   selectedState?: string;
 
-  @Input() randomSpot: any =[0,0];
+  @Input() randomSpot: any = [0, 0];
 
   @Output() submitState: EventEmitter<any> = new EventEmitter();
 
   constructor(private shapesService: ShapesService) {}
 
+  // on changes to properties
   ngOnChanges(): void {
+    // if map and random spot exist, set marker, recenter and zoom, and remove state layers
     if (this.map && this.randomSpot) {
-      console.log("random spot is ", this.randomSpot)
       const marker = L.marker(this.randomSpot);
+      // adds marker to map on random spot
       marker.addTo(this.map);
+
+      // zooms in on random spot
+      this.map.setView(this.randomSpot, 10);
+
+      // removes state layers
+      this.map.removeLayer(this.stateLayer);
     }
   }
 
   // presents map
   private initMap(): void {
-    // initializes map centered on new england
+    // initializes map centered on new england and sets default zoom settings to disabled
     this.map = L.map('map', {
       center: [43.9654, -70.8227],
       zoom: 6,
+      zoomControl: false,
+      doubleClickZoom: false,
+      scrollWheelZoom: false,
+      touchZoom: false,
+      dragging: false
     });
 
     // constructs leaflet tiles to present map with zoom limitations
@@ -102,7 +116,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   // adds state outlines to map
   private initStatesLayer() {
     // constructs state layers from geoJSOn data saved in states
-    const stateLayer = L.geoJSON(this.states, {
+    this.stateLayer = L.geoJSON(this.states, {
       style: (feature) => ({
         weight: 3,
         opacity: 0.5,
@@ -126,7 +140,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       },
     });
 
-    this.map?.addLayer(stateLayer);
+    this.map?.addLayer(this.stateLayer);
   }
 
   // method for when state is selected

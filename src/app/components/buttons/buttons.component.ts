@@ -22,11 +22,13 @@ export class ButtonsComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  // when start is clicked: toggles start and picks random spot
   toggleStart(): void {
     this.start = false;
     this.getRandomSpot();
   }
 
+  // selects random spot by calling on random spot service
   getRandomSpot(): void {
     if (this.selectedState && this.states) {
       this.randomSpot = this.randomSpotService.getRandomSpot(
@@ -34,7 +36,7 @@ export class ButtonsComponent implements OnInit {
         this.states
       );
     }
-    
+
     this.submitRandomSpot.emit(this.randomSpot);
   }
 }

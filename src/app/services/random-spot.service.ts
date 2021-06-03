@@ -9,11 +9,8 @@ import leafletPip from 'leaflet-pip';
 export class RandomSpotService {
   // stores randomSpot once generated
   randomSpot: number[] = [];
-  // holds stateborders
-  private states: any;
   // holds border for selectedState
   private border: any;
-  // holds min and max lat and long for boundaries
 
   constructor() {}
 
@@ -85,9 +82,8 @@ export class RandomSpotService {
     return border;
   }
 
+  // determins the min and max lat and long for the selected state
   findStateMaxMin(border: any): number[][] {
-    console.log(border);
-
     // initializes min and max lat and long
     let minMaxlats: number[] = [1000, -1000];
     let minMaxlongs: number[] = [1000, -1000];
@@ -132,20 +128,18 @@ export class RandomSpotService {
       });
     });
 
+    // returns set of min and max lat and long
     return [minMaxlats,minMaxlongs]
 
   }
 
   // generates random spot inside state and returns random spot
   getRandomSpot(selectedState: string, states: any): number[] {
-    console.log('getting random spot');
     // isolates border for selected state
     this.border = this.getStateBorder(selectedState, states);
 
     // find maxmin lat and long - returns min and max as [[minmaxlat],minmaxlong]
     const minMax: number[][] = this.findStateMaxMin(this.border.geometry.coordinates);
-
-    console.log(minMax)
 
     // selects random point inside of state
     this.selectRandomPointInState(minMax);
