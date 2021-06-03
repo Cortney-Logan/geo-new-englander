@@ -1,5 +1,5 @@
 <div id="button-container">
-  <button *ngIf="start" (click)="toggleStart()">Start</button>
+  <button *ngIf="selectedState && start" (click)="toggleStart()">Start</button>
   <button *ngIf="!start">Guess</button>
   <button *ngIf="!start">Quit</button>
 </div>

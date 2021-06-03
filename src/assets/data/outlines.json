@@ -6,7 +6,8 @@
             "STATE": "09",
             "NAME": "Connecticut",
             "LSAD": "",
-            "CENSUSAREA": 4842.355000
+            "CENSUSAREA": 4842.355000,
+            "CENTER": [41.60,-73.09]
         },
         "geometry": {
             "type": "Polygon",
@@ -1467,7 +1468,8 @@
             "STATE": "23",
             "NAME": "Maine",
             "LSAD": "",
-            "CENSUSAREA": 30842.923000
+            "CENSUSAREA": 30842.923000,
+            "CENTER": [45.25,-69.45]
         },
         "geometry": {
             "type": "MultiPolygon",
@@ -9962,7 +9964,8 @@
             "STATE": "25",
             "NAME": "Massachusetts",
             "LSAD": "",
-            "CENSUSAREA": 7800.058000
+            "CENSUSAREA": 7800.058000,
+            "CENTER": [42.41,-71.38]
         },
         "geometry": {
             "type": "MultiPolygon",
@@ -13141,7 +13144,8 @@
             "STATE": "33",
             "NAME": "New Hampshire",
             "LSAD": "",
-            "CENSUSAREA": 8952.651000
+            "CENSUSAREA": 8952.651000,
+            "CENTER": [43.19,-71.57]
         },
         "geometry": {
             "type": "Polygon",
@@ -18634,7 +18638,8 @@
             "STATE": "44",
             "NAME": "Rhode Island",
             "LSAD": "",
-            "CENSUSAREA": 1033.814000
+            "CENSUSAREA": 1033.814000,
+            "CENTER": [41.58,-71.48]
         },
         "geometry": {
             "type": "MultiPolygon",
@@ -20057,7 +20062,8 @@
             "STATE": "50",
             "NAME": "Vermont",
             "LSAD": "",
-            "CENSUSAREA": 9216.657000
+            "CENSUSAREA": 9216.657000,
+            "CENTER": [43.88, -72.7317]
         },
         "geometry": {
             "type": "Polygon",

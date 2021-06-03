@@ -1,5 +1,5 @@
 <app-header></app-header>
 <div id="game-board">
-  <app-map></app-map>
+  <app-map (submitState)="toggleStateSubmitted($event)" [randomSpot]="randomSpot"></app-map>
 </div>
-<app-buttons></app-buttons>
+<app-player-area [selectedState]="selectedState" [states]="states" (submitRandomSpot)="toggleRandomSpotSubmitted($event)"></app-player-area>

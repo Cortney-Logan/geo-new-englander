@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Border } from '../../Border';
+
+import { RandomSpotService } from '../../services/random-spot.service';
 
 @Component({
   selector: 'app-buttons',
@@ -7,12 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonsComponent implements OnInit {
   start: boolean = true;
+  border?: any;
+  randomSpot: number[] = [];
 
-  constructor() {}
+  @Input() selectedState?: string;
+  @Input() states: any;
+
+  @Output() submitRandomSpot: EventEmitter<any> = new EventEmitter();
+
+  constructor(private randomSpotService: RandomSpotService) {}
 
   ngOnInit(): void {}
 
-  toggleStart(): void{
+  toggleStart(): void {
     this.start = false;
+    this.getRandomSpot();
+  }
+
+  getRandomSpot(): void {
+    if (this.selectedState && this.states) {
+      this.randomSpot = this.randomSpotService.getRandomSpot(
+        this.selectedState,
+        this.states
+      );
+    }
+    
+    this.submitRandomSpot.emit(this.randomSpot);
   }
 }
