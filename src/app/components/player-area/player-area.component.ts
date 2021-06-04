@@ -13,6 +13,7 @@ export class PlayerAreaComponent implements OnInit {
   randomSpot: any;
 
   @Output() submitRandomSpot: EventEmitter<any> = new EventEmitter();
+  @Output() submitQuit: EventEmitter<any> = new EventEmitter();
 
 
   constructor() { }
@@ -23,6 +24,11 @@ export class PlayerAreaComponent implements OnInit {
   toggleRandomSpotSubmitted(randomSpot: Event){
     this.randomSpot = randomSpot;
     this.submitRandomSpot.emit(this.randomSpot);
+  }
+
+  toggleQuit(){
+    console.log("quit triggered in player area component")
+    this.submitQuit.emit();
   }
 
 }

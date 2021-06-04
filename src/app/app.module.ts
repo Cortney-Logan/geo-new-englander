@@ -9,6 +9,8 @@ import { MapComponent } from './components/map/map.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { PlayerAreaComponent } from './components/player-area/player-area.component';
+import { InformationComponent } from './components/information/information.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { PlayerAreaComponent } from './components/player-area/player-area.compon
     HeaderComponent,
     ButtonsComponent,
     PlayerAreaComponent,
+    InformationComponent,
+    NavigationComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [ShapesService],

@@ -1,0 +1,10 @@
+#navigation-container{
+    position: relative;
+    margin: 30px;
+    height: 600px;
+    width: 300px;
+}
+
+h2{
+    text-align: center;
+}

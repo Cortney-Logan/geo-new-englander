@@ -82,7 +82,7 @@ export class RandomSpotService {
     return border;
   }
 
-  // determins the min and max lat and long for the selected state
+  // determines the min and max lat and long for the selected state
   findStateMaxMin(border: any): number[][] {
     // initializes min and max lat and long
     let minMaxlats: number[] = [1000, -1000];

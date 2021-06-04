@@ -12,6 +12,7 @@ export class AppComponent {
   public selectedState?: any;
   public states: any;
   public randomSpot?: any;
+  public quit: boolean = false;
 
   constructor(private shapesService: ShapesService) {}
 
@@ -28,5 +29,9 @@ export class AppComponent {
 
   toggleRandomSpotSubmitted(randomSpot: Event) {
     this.randomSpot = randomSpot;
+  }
+
+  toggleQuit(): void{
+    this.quit = true;
   }
 }

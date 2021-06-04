@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Border } from '../../Border';
 
 import { RandomSpotService } from '../../services/random-spot.service';
 
@@ -10,6 +9,8 @@ import { RandomSpotService } from '../../services/random-spot.service';
 })
 export class ButtonsComponent implements OnInit {
   start: boolean = true;
+  quit: boolean = false;
+  guess: boolean = false;
   border?: any;
   randomSpot: number[] = [];
 
@@ -17,6 +18,7 @@ export class ButtonsComponent implements OnInit {
   @Input() states: any;
 
   @Output() submitRandomSpot: EventEmitter<any> = new EventEmitter();
+  @Output() submitQuit: EventEmitter<any> = new EventEmitter();
 
   constructor(private randomSpotService: RandomSpotService) {}
 
@@ -26,6 +28,17 @@ export class ButtonsComponent implements OnInit {
   toggleStart(): void {
     this.start = false;
     this.getRandomSpot();
+  }
+
+  // when quit is quicked: toggles quit and 
+  toggleQuit(): void{
+    console.log("quit triggered in button component")
+    this.quit = true;
+    this.submitQuit.emit();
+  }
+
+  toggleGuess(): void {
+    this.guess = true;
   }
 
   // selects random spot by calling on random spot service
