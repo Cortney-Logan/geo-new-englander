@@ -1,0 +1,99 @@
+[
+    {
+        "state": "Vermont",
+        "counties": [
+            "Grand Isle",
+            "Franklin",
+            "Orleans",
+            "Essex",
+            "Caledonia",
+            "Lamoille",
+            "Chittenden",
+            "Washington",
+            "Addison",
+            "Orange",
+            "Rutland",
+            "Windsor",
+            "Bennington",
+            "Windham"
+        ]
+    },
+    {
+        "state": "New Hampshire",
+        "counties": [
+            "Belknap",
+            "Carroll",
+            "Cheshire",
+            "Coos",
+            "Grafton",
+            "Hillsborough",
+            "Merrimack",
+            "Rockingham",
+            "Strafford",
+            "Sullivan"
+        ]
+    },
+    {
+        "state": "Maine",
+        "counties": [
+            "Androscoggin",
+            "Aroostook",
+            "Cumberland",
+            "Franklin",
+            "Hancock",
+            "Kennebec",
+            "Knox",
+            "Lincoln",
+            "Oxford",
+            "Penobscot",
+            "Piscataquis",
+            "Sagadahoc",
+            "Somerset",
+            "Waldo",
+            "Washington",
+            "York"
+        ]
+    },
+    {
+        "state": "Connecticut",
+        "counties": [
+            "Fairfield",
+            "Hartford",
+            "Litchfield",
+            "Middlesex",
+            "New Haven",
+            "New London",
+            "Tolland",
+            "Windham"
+        ]
+    },
+    {
+        "state": "Rhode Island",
+        "counties": [
+            "Bristol",
+            "Kent",
+            "Newport",
+            "Providence",
+            "Washington"
+        ]
+    },
+    {
+        "state": "Massachusetts",
+        "counties": [
+            "Barnstable",
+            "Berkshire",
+            "Bristol",
+            "Dukes",
+            "Essex",
+            "Franklin",
+            "Hampden",
+            "Hampshire",
+            "Middlesex",
+            "Nantucket",
+            "Norfolk",
+            "Plymouth",
+            "Suffolk",
+            "Worcester"
+        ]
+    }
+]

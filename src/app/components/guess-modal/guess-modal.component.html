@@ -1,0 +1,10 @@
+<div *ngIf="guess" id="guess-modal-container">
+  <h2>Guess the County</h2>
+  <form>
+    <select name="county" >
+      <option *ngFor="let county of counties" [value]="county">{{county}}</option>
+    </select>
+  </form>
+  <button class="modal-btn">Guess</button>
+  <button class="modal-btn" (click)="toggleGuess()">Cancel</button>
+</div>

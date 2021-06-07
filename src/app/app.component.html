@@ -1,7 +1,18 @@
 <app-header></app-header>
 <div id="game-board">
   <app-navigation></app-navigation>
-  <app-map (submitState)="toggleStateSubmitted($event)" [randomSpot]="randomSpot"></app-map>
+  <app-map
+    (submitState)="toggleStateSubmitted($event)"
+    [randomSpot]="randomSpot"
+  ></app-map>
   <app-information [randomSpot]="randomSpot" [quit]="quit"></app-information>
+  <!-- <app-guess-modal *ngIf="guess"></app-guess-modal> -->
+  <app-guess-modal [guess]="guess" (resetGuess)="resetGuess()"></app-guess-modal>
 </div>
-<app-player-area [selectedState]="selectedState" [states]="states" (submitRandomSpot)="toggleRandomSpotSubmitted($event)" (submitQuit)="toggleQuit()"></app-player-area>
+<app-player-area
+  [selectedState]="selectedState"
+  [states]="states"
+  (submitRandomSpot)="toggleRandomSpotSubmitted($event)"
+  (submitQuit)="toggleQuit()"
+  (triggerGuess)="toggleGuess()"
+></app-player-area>

@@ -42,7 +42,8 @@ export class InformationComponent implements OnInit, OnChanges {
       this.town = this.locationDetails.address.village
     } else if(this.locationDetails.address.hamlet){
       this.town = this.locationDetails.address.hamlet
-    }
+    }else if(this.locationDetails.address.city_district){
+      this.town = this.locationDetails.address.city_district}
 
   }
 }

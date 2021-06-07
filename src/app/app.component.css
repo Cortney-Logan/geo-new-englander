@@ -1,4 +1,12 @@
 #game-board{
    display: flex;
-   justify-content: center; 
+   justify-content: center;
+   align-items: center;
+
+   position: relative;
+}
+
+app-guess-modal{
+   position: absolute;
+   z-index: 1000;
 }

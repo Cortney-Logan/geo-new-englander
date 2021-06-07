@@ -19,6 +19,7 @@ export class ButtonsComponent implements OnInit {
 
   @Output() submitRandomSpot: EventEmitter<any> = new EventEmitter();
   @Output() submitQuit: EventEmitter<any> = new EventEmitter();
+  @Output() triggerGuess: EventEmitter<any> = new EventEmitter();
 
   constructor(private randomSpotService: RandomSpotService) {}
 
@@ -39,6 +40,7 @@ export class ButtonsComponent implements OnInit {
 
   toggleGuess(): void {
     this.guess = true;
+    this.triggerGuess.emit();
   }
 
   // selects random spot by calling on random spot service

@@ -14,6 +14,7 @@ export class PlayerAreaComponent implements OnInit {
 
   @Output() submitRandomSpot: EventEmitter<any> = new EventEmitter();
   @Output() submitQuit: EventEmitter<any> = new EventEmitter();
+  @Output() triggerGuess: EventEmitter<any> = new EventEmitter();
 
 
   constructor() { }
@@ -29,6 +30,10 @@ export class PlayerAreaComponent implements OnInit {
   toggleQuit(){
     console.log("quit triggered in player area component")
     this.submitQuit.emit();
+  }
+
+  toggleGuess(){
+    this.triggerGuess.emit();
   }
 
 }

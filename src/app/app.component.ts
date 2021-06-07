@@ -13,6 +13,7 @@ export class AppComponent {
   public states: any;
   public randomSpot?: any;
   public quit: boolean = false;
+  public guess: boolean = false;
 
   constructor(private shapesService: ShapesService) {}
 
@@ -31,7 +32,17 @@ export class AppComponent {
     this.randomSpot = randomSpot;
   }
 
-  toggleQuit(): void{
+  toggleQuit(): void {
     this.quit = true;
+  }
+
+  toggleGuess() {
+    this.guess = true;
+    console.log("guess triggered")
+    console.log("guess is ", this.guess)
+  }
+
+  resetGuess(){
+    this.guess = false;
   }
 }

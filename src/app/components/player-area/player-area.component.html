@@ -1,4 +1,12 @@
-<div *ngIf = "selectedState; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock><h2>{{selectedState}}</h2></ng-template>
+<div *ngIf="selectedState; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock
+  ><h2>{{ selectedState }}</h2></ng-template
+>
 <ng-template #elseBlock><h2>Select a state to begin</h2></ng-template>
-<app-buttons [selectedState]="selectedState" [states]="states" (submitRandomSpot)="toggleRandomSpotSubmitted($event)" (submitQuit)="toggleQuit()"></app-buttons>
+<app-buttons
+  [selectedState]="selectedState"
+  [states]="states"
+  (submitRandomSpot)="toggleRandomSpotSubmitted($event)"
+  (submitQuit)="toggleQuit()"
+  (triggerGuess)="toggleGuess()"
+></app-buttons>

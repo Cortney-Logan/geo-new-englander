@@ -11,6 +11,7 @@ import { ButtonsComponent } from './components/buttons/buttons.component';
 import { PlayerAreaComponent } from './components/player-area/player-area.component';
 import { InformationComponent } from './components/information/information.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { GuessModalComponent } from './components/guess-modal/guess-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     PlayerAreaComponent,
     InformationComponent,
     NavigationComponent,
+    GuessModalComponent,
   ],
   imports: [BrowserModule, HttpClientModule],
   providers: [ShapesService],

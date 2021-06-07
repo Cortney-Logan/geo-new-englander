@@ -1,0 +1,30 @@
+#guess-modal-container{
+    height: 300px;
+    width: 400px;
+
+    border: 3px double black;
+    border-radius: 3px;
+    background-color: aliceblue;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+select{
+    margin: 25px;
+}
+
+.modal-btn{
+    height: 25px;
+    width: 75px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.modal-btn:hover {
+    cursor: pointer;
+    background-color: rgba(127, 131, 106, 0.897);
+    color: black;
+  }
