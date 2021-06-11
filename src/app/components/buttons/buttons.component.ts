@@ -31,13 +31,13 @@ export class ButtonsComponent implements OnInit {
     this.getRandomSpot();
   }
 
-  // when quit is quicked: toggles quit and 
+  // when quit is clicked: toggles quit and emits new value to player area
   toggleQuit(): void{
-    console.log("quit triggered in button component")
     this.quit = true;
     this.submitQuit.emit();
   }
 
+  // when guess is clicked: toggles guess and emits new value to player area
   toggleGuess(): void {
     this.guess = true;
     this.triggerGuess.emit();

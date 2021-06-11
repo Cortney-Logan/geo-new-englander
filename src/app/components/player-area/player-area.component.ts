@@ -22,16 +22,18 @@ export class PlayerAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // when start is clicked in buttons, submits random spot to app
   toggleRandomSpotSubmitted(randomSpot: Event){
     this.randomSpot = randomSpot;
     this.submitRandomSpot.emit(this.randomSpot);
   }
 
+  // when quit is clicked in buttons, submits quit to app component
   toggleQuit(){
-    console.log("quit triggered in player area component")
     this.submitQuit.emit();
   }
 
+  // when guess is clicked in buttons, submits guess to app component
   toggleGuess(){
     this.triggerGuess.emit();
   }

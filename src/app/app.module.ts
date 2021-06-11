@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { ShapesService } from './services/shapes.service';
 
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { GuessModalComponent } from './components/guess-modal/guess-modal.compon
     NavigationComponent,
     GuessModalComponent,
   ],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [ShapesService],
   bootstrap: [AppComponent],
 })

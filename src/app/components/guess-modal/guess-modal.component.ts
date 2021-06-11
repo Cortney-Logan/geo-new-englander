@@ -17,6 +17,7 @@ import { Counties } from '../../Counties';
 })
 export class GuessModalComponent implements OnInit, OnChanges {
   counties: string[] = [];
+  selectedCounty: any="-- Pick A County --";
 
   @Input() guess: boolean = false;
   @Input() selectedState?: string;
@@ -28,11 +29,10 @@ export class GuessModalComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    console.log('guess-modal onchange triggered');
-
+    // access counties from assets
     this.countiesService.getCounties().subscribe((counties) => {
       const temp: any = counties;
-
+      // isolates counties for selected state and sets it to this.counties to populate dropdown
       temp.forEach((stateCounties: Counties) => {
         if (stateCounties.state === this.selectedState) {
           this.counties = stateCounties.counties;
@@ -41,7 +41,18 @@ export class GuessModalComponent implements OnInit, OnChanges {
     });
   }
 
-  toggleGuess() {
+  submitCounty(county: any){
+    console.log('value submitted')
+    console.log(this.selectedCounty)
+  }
+
+  // when guess is clicked
+  submitGuess() {
+    console.log('making a guess');
+    console.log()
+  }
+  // when cancel is clicked, guess is set to false to close the modal
+  toggleGuessModal() {
     this.guess = false;
     this.resetGuess.emit();
   }

@@ -7,7 +7,11 @@
   ></app-map>
   <app-information [randomSpot]="randomSpot" [quit]="quit"></app-information>
   <!-- <app-guess-modal *ngIf="guess"></app-guess-modal> -->
-  <app-guess-modal [selectedState]="selectedState" [guess]="guess" (resetGuess)="resetGuess()"></app-guess-modal>
+  <app-guess-modal
+    [selectedState]="selectedState"
+    [guess]="guess"
+    (resetGuess)="resetGuess()"
+  ></app-guess-modal>
 </div>
 <app-player-area
   [selectedState]="selectedState"
