@@ -19,8 +19,6 @@ export class InformationComponent implements OnInit, OnChanges {
   ngOnInit(): void {}
 
   ngOnChanges(): void {
-    console.log("on change triggered")
-
     if (this.randomSpot) {
       this.locationIdService
         .locationLookup(this.randomSpot)

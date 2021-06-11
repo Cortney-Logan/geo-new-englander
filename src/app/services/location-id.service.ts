@@ -11,8 +11,6 @@ export class LocationIdService {
   constructor(private http: HttpClient) { }
 
   locationLookup(location: number[]): Observable<any>{
-    console.log("location id service triggered")
-
     const url = `https://nominatim.openstreetmap.org/reverse?lat=${location[0]}&lon=${location[1]}&format=jsonv2`
 
     return this.http.get<any>(url)
