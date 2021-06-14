@@ -2,4 +2,5 @@
   <button *ngIf="selectedState && start" (click)="toggleStart()">Start</button>
   <button *ngIf="!start" (click)="toggleGuess()">Guess</button>
   <button *ngIf="!start" (click)="toggleQuit()">Quit</button>
+  <button *ngIf="!start">Play Again?</button>
 </div>

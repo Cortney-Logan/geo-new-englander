@@ -3,9 +3,7 @@
   <form>
     <select
       name="county"
-      [(ngModel)]="selectedCounty"
-      (ngModelChange)="submitCounty($event)">
-      <option value="null" selected>-- Pick a County --</option>
+      [(ngModel)]="selectedCounty">
       <option *ngFor="let county of counties" [ngValue]="county">
         {{ county }}
       </option>
@@ -13,4 +11,5 @@
   </form>
   <button class="modal-btn" (click)="submitGuess()">Guess</button>
   <button class="modal-btn" (click)="toggleGuessModal()">Cancel</button>
+  <h2>{{message}}</h2>
 </div>

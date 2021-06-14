@@ -35,6 +35,7 @@ export class AppComponent {
   }
 
   // triggered when quit button is clicked in player area, sets parent value of guess to true
+  // this populates the information panel
   toggleQuit(): void {
     this.quit = true;
   }
