@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { LocationIdService } from '../../services/location-id.service';
+import { ToggleService } from 'src/app/services/toggle.service';
 
 @Component({
   selector: 'app-information',
@@ -9,9 +10,11 @@ import { LocationIdService } from '../../services/location-id.service';
 })
 export class InformationComponent implements OnInit, OnChanges {
   @Input() randomSpot?: number[];
-  @Input() quit: boolean = false;
 
-  constructor(public locationIdService: LocationIdService) {}
+  constructor(
+    public locationIdService: LocationIdService,
+    public toggleService: ToggleService
+  ) {}
 
   ngOnInit(): void {}
 

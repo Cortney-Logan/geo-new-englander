@@ -5,18 +5,13 @@
     (submitState)="toggleStateSubmitted($event)"
     [randomSpot]="randomSpot"
   ></app-map>
-  <app-information [randomSpot]="randomSpot" [quit]="quit"></app-information>
+  <app-information [randomSpot]="randomSpot"></app-information>
   <app-guess-modal
     [selectedState]="selectedState"
-    [guess]="guess"
-    (resetGuess)="resetGuess()"
-    (populateInformation)="toggleQuit()"
   ></app-guess-modal>
 </div>
 <app-player-area
   [selectedState]="selectedState"
   [states]="states"
   (submitRandomSpot)="toggleRandomSpotSubmitted($event)"
-  (submitQuit)="toggleQuit()"
-  (triggerGuess)="toggleGuess()"
 ></app-player-area>

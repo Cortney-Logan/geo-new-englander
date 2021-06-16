@@ -13,7 +13,6 @@ export class AppComponent {
   public states: any;
   public randomSpot?: any;
   public quit: boolean = false;
-  public guess: boolean = false;
 
   constructor(private shapesService: ShapesService) {}
 
@@ -32,21 +31,5 @@ export class AppComponent {
   // triggered after start has been clicked in buttons component and random spot is selected; sets random spot as value
   toggleRandomSpotSubmitted(randomSpot: Event) {
     this.randomSpot = randomSpot;
-  }
-
-  // triggered when quit button is clicked in player area, sets parent value of guess to true
-  // this populates the information panel
-  toggleQuit(): void {
-    this.quit = true;
-  }
-
-  // triggered when guess button is clicked in player area, sets parent value of guess to true
-  toggleGuess() {
-    this.guess = true;
-  }
-
-  // triggered when cancel is clicked in modal, sets guess to false to close modal
-  resetGuess() {
-    this.guess = false;
   }
 }

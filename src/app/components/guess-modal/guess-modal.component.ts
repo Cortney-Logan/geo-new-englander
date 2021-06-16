@@ -10,6 +10,8 @@ import {
 import { CountiesService } from 'src/app/services/counties.service';
 import { LocationIdService } from 'src/app/services/location-id.service';
 import { ScoreService } from 'src/app/services/score.service';
+import { ToggleService } from 'src/app/services/toggle.service';
+
 import { Counties } from '../../Counties';
 
 @Component({
@@ -25,13 +27,11 @@ export class GuessModalComponent implements OnInit, OnChanges {
   @Input() guess: boolean = false;
   @Input() selectedState?: string;
 
-  @Output() resetGuess: EventEmitter<any> = new EventEmitter();
-  @Output() populateInformation: EventEmitter<any> = new EventEmitter();
-
   constructor(
     private countiesService: CountiesService,
     private locationIdService: LocationIdService,
-    private scoreService: ScoreService
+    private scoreService: ScoreService,
+    public toggleService: ToggleService
   ) {}
 
   ngOnInit(): void {}
@@ -58,8 +58,8 @@ export class GuessModalComponent implements OnInit, OnChanges {
         console.log('match!');
         this.message = 'Congratulations, you win!';
         // populate information
-        this.populateInformation.emit();
-
+        this.toggleService.toggleLocationInformationOn();
+        this.toggleService.toggleShowPlayAgainOn();
       }
       // if the selected county does not match the actual county score is reduced
       else {
@@ -73,7 +73,6 @@ export class GuessModalComponent implements OnInit, OnChanges {
   }
   // when cancel is clicked, guess is set to false to close the modal
   toggleGuessModal() {
-    this.guess = false;
-    this.resetGuess.emit();
+    this.toggleService.toggleGuessModalOff();
   }
 }

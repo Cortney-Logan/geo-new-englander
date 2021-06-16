@@ -1,6 +1,6 @@
 <div id="button-container">
-  <button *ngIf="selectedState && start" (click)="toggleStart()">Start</button>
-  <button *ngIf="!start" (click)="toggleGuess()">Guess</button>
-  <button *ngIf="!start" (click)="toggleQuit()">Quit</button>
-  <button *ngIf="!start">Play Again?</button>
+  <button *ngIf="selectedState && toggleService.start" (click)="toggleStart()">Start</button>
+  <button *ngIf="!toggleService.start && !toggleService.showPlayAgain" (click)="toggleGuess()">Guess</button>
+  <button *ngIf="!toggleService.start && !toggleService.showPlayAgain" (click)="toggleQuit()">Quit</button>
+  <button *ngIf="toggleService.showPlayAgain" (click)="toggleGameReset()">Play Again?</button>
 </div>

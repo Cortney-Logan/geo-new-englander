@@ -144,7 +144,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
   }
 
   // method for when state is selected
-  private selectState(evt: any) {
+  selectState(evt: any) {
     // if selected state exists
     if (this.selectedState) {
       // identify center for zoom from outlines by calling CENTER property for the selected state
