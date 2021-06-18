@@ -12,7 +12,7 @@ export class AppComponent {
   public selectedState?: any;
   public states: any;
   public randomSpot?: any;
-  public quit: boolean = false;
+  public center: any;
 
   constructor(private shapesService: ShapesService) {}
 
@@ -31,5 +31,9 @@ export class AppComponent {
   // triggered after start has been clicked in buttons component and random spot is selected; sets random spot as value
   toggleRandomSpotSubmitted(randomSpot: Event) {
     this.randomSpot = randomSpot;
+  }
+
+  triggerMove(newCenter: Event){
+    this.center = newCenter;
   }
 }

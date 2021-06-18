@@ -1,1 +1,42 @@
-<div id="navigation-container"><h2>Navigation</h2></div>
+<div id="navigation-container">
+  <h2>Navigation</h2>
+  <div id="movement-buttons">
+    <div id="movement-buttons-top">
+      <img
+        src="../../../assets/images/arrow.svg"
+        id="north"
+        className="move-button"
+        alt="up-arrow"
+        (click)="moveNorth()"
+      />
+    </div>
+    <div id="movement-buttons-center">
+      <img
+        src="../../../assets/images/arrow.svg"
+        id="west"
+        className="move-button"
+        alt="left-arrow"
+        (click)="moveWest()"
+      />
+      <div id="return" className="move-button" (click)="moveReturn()">
+        Return
+      </div>
+      <img
+        src="../../../assets/images/arrow.svg"
+        id="east"
+        className="move-button"
+        alt="right-arrow"
+        (click)="moveEast()"
+      />
+    </div>
+    <div id="movement-buttons-bottom">
+      <img
+        src="../../../assets/images/arrow.svg"
+        id="south"
+        className="move-button"
+        alt="down-arrow"
+        (click)="moveSouth()"
+      />
+    </div>
+  </div>
+</div>

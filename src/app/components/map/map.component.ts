@@ -4,7 +4,7 @@ import {
   AfterViewInit,
   Output,
   EventEmitter,
-  Input,
+  Input
 } from '@angular/core';
 import * as L from 'leaflet';
 
@@ -36,26 +36,47 @@ export class MapComponent implements AfterViewInit, OnChanges {
   private states: any;
   private stateLayer: any;
   selectedState?: string;
+  private center: any;
 
   @Input() randomSpot: any = [0, 0];
+  @Input() newCenter: any;
 
   @Output() submitState: EventEmitter<any> = new EventEmitter();
 
-  constructor(private shapesService: ShapesService) {}
+  constructor(
+    private shapesService: ShapesService
+  ) {}
 
   // on changes to properties
   ngOnChanges(): void {
+    console.log('onchange triggered');
     // if map and random spot exist, set marker, recenter and zoom, and remove state layers
     if (this.map && this.randomSpot) {
-      const marker = L.marker(this.randomSpot);
-      // adds marker to map on random spot
-      marker.addTo(this.map);
+      let marker;
 
-      // zooms in on random spot
-      this.map.setView(this.randomSpot, 10);
+      // if market isn't already set, random spot hasn't been selected yet
+      if (!marker) {
+        marker = L.marker(this.randomSpot);
+        // adds marker to map on random spot
+        marker.addTo(this.map);
 
-      // removes state layers
-      this.map.removeLayer(this.stateLayer);
+        // removes state layers
+        this.map.removeLayer(this.stateLayer);
+
+        // zooms in on random spot
+        this.map.setView(this.randomSpot, 10);
+
+        // sets center as randomspot
+        this.center = this.randomSpot;
+      }
+
+      // if the current center of the map (this.center) is not equal to the new center, move map view
+      if (this.center !== this.newCenter) {
+        // reset view over new center
+        this.map.setView(this.newCenter, 10);
+        // set center to new center
+        this.center = this.newCenter;
+      }
     }
   }
 
@@ -69,7 +90,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       doubleClickZoom: false,
       scrollWheelZoom: false,
       touchZoom: false,
-      dragging: false
+      dragging: false,
     });
 
     // constructs leaflet tiles to present map with zoom limitations
@@ -148,9 +169,9 @@ export class MapComponent implements AfterViewInit, OnChanges {
     // if selected state exists
     if (this.selectedState) {
       // identify center for zoom from outlines by calling CENTER property for the selected state
-      const center = evt.target.feature.properties.CENTER;
+      this.center = evt.target.feature.properties.CENTER;
       // center the map and zoom in on the selected state
-      this.map?.setView(center, 7);
+      this.map?.setView(this.center, 7);
 
       // emit selected state
       this.submitState.emit(this.selectedState);
